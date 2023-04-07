@@ -30,30 +30,30 @@ type DBReader interface {
 type StolenDB JData
 type OriginalDB JData
 
-type JIngredients struct {
-	Iname  string `json:"ingredient_name" xml:"itemname"`
-	Icount string `json:"ingredient_count" xml:"itemcount"`
-	Iunit  string `json:"ingredient_unit" xml:"itemunit"`
+type JsonIngredients struct {
+	Name  string `json:"ingredient_name" xml:"itemname"`
+	Count string `json:"ingredient_count" xml:"itemcount"`
+	Unit  string `json:"ingredient_unit" xml:"itemunit"`
 }
 
-type JCake struct {
-	CName        string         `json:"name" xml:"name"`
-	CTime        string         `json:"time" xml:"stovetime"`
-	CIngredients []JIngredients `json:"ingredients"`
-	XIng         []XIngredients `xml:"ingredients"`
+type Cake struct {
+	Name        string            `json:"name" xml:"name"`
+	Time        string            `json:"time" xml:"stovetime"`
+	Ingredients []JsonIngredients `json:"ingredients"`
+	Ing         []XmlIngredients  `xml:"ingredients"`
 }
 
 type JData struct {
 	XMLName  xml.Name `xml:"recipes"`
-	Database []JCake  `json:"cake" xml:"cake"`
+	Database []Cake   `json:"cake"`
 }
 
-type XIngredients struct {
-	Items []JIngredients `xml:"item"`
+type XmlIngredients struct {
+	Items []XmlIngredients `xml:"item"`
 }
 
-type XData struct {
-	Database []JCake `xml:"cake"`
+type Data struct {
+	Database []Cake `xml:"cake"`
 }
 
 func ConvertOut(path string) DBReader {
