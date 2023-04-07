@@ -37,7 +37,7 @@ type JsonIngredients struct {
 }
 
 type Cake struct {
-	Name        string            `json:"name" xml:"name"`
+	Name        s[tring            `json:"name" xml:"name"`
 	Time        string            `json:"time" xml:"stovetime"`
 	Ingredients []JsonIngredients `json:"ingredients"`
 	Ing         []XmlIngredients  `xml:"ingredients"`
